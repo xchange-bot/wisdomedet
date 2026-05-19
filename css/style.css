@@ -49,82 +49,9 @@ body::before {
 }
 
 /* ============================================================
-   ── RESPONSIVE DESIGN & MOBILE BREAKPOINTS ──
-   ============================================================ */
-
-/* Default Visual Layout Container (Mobile First Approach) */
-.about-visuals {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  width: 100%;
-}
-
-/* --- Tablet Rules / Small Screens --- */
-@media (max-width: 992px) {
-  #about {
-    grid-template-columns: 1fr; /* Drop main sections to single columns */
-    gap: 3rem;
-    padding: 4rem 1.5rem;
-  }
-  
-  nav {
-    padding: 1rem 1.5rem;
-  }
-  
-  .nav-links {
-    gap: 1.25rem;
-  }
-  
-  .hero-stats {
-    gap: 1.5rem;
-    margin-top: 2.5rem;
-  }
-}
-
-/* --- Laptop & High Res Desktop Monitors --- */
-@media (min-width: 993px) {
-  #about {
-    display: grid;
-    grid-template-columns: 1.1fr 1.9fr; /* Side by side tracking sections */
-    gap: 4rem;
-    align-items: start;
-  }
-
-  .about-visuals {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Places photo and terminal completely side-by-side */
-    gap: 1.5rem;
-  }
-  
-  .photo-frame {
-    height: 380px; /* Taller profiles on desktop layouts */
-  }
-}
-
-/* --- Extra Small Mobile Screens (Phones) --- */
-@media (max-width: 480px) {
-  section {
-    padding: 4rem 1rem !important; /* Prevents oversized padding cutoffs */
-  }
-
-  .hero-name {
-    font-size: 2.8rem; /* Keeps giant display typography readable on narrow viewports */
-  }
-
-  .photo-frame {
-    height: 280px; /* Shorter heights so it doesn't push sections too far down */
-  }
-  
-  .btn-primary, .btn-ghost {
-    width: 100%; /* Makes buttons full-width stackable for thumbs on touch displays */
-    text-align: center;
-  }
-}
-
-/* ============================================================
    INTERACTIVE MODAL STYLES 
    ============================================================ */
+
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -134,7 +61,7 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem; /* Better breathing room on mobile screens */
+  padding: 2rem;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
@@ -164,7 +91,7 @@ body::before {
 }
 
 .modal-header {
-  padding: 1.25rem 1.5rem;
+  padding: 1.5rem 2rem;
   background: var(--surface);
   border-bottom: 1px solid var(--border);
   display: flex;
@@ -175,7 +102,7 @@ body::before {
 .modal-title-group h3 {
   font-family: var(--sans);
   color: #fff;
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   margin-top: 0.3rem;
 }
 
@@ -201,7 +128,7 @@ body::before {
 }
 
 .modal-body {
-  padding: 1.5rem;
+  padding: 2rem;
   overflow-y: auto;
 }
 
@@ -219,7 +146,6 @@ body::before {
   gap: 0.5rem;
   border-bottom: 1px solid var(--border);
   margin-bottom: 1.25rem;
-  overflow-x: auto; /* Ensures tabs scroll instead of squishing on mobile */
 }
 
 .tab-btn {
@@ -227,10 +153,9 @@ body::before {
   font-size: 0.72rem;
   background: transparent;
   border: none;
-  padding: 0.6rem 1rem;
+  padding: 0.6rem 1.2rem;
   color: var(--muted);
   cursor: pointer;
-  white-space: nowrap;
   position: relative;
   transition: color 0.2s;
 }
@@ -270,7 +195,7 @@ body::before {
 pre {
   background: #04060a;
   border: 1px solid var(--border);
-  padding: 1rem;
+  padding: 1.25rem;
   overflow-x: auto;
   border-radius: 0 0 4px 4px;
 }
@@ -280,30 +205,6 @@ code {
   font-size: 0.75rem;
   color: #a6d1ff;
   line-height: 1.6;
-}
-
-/* ── SCROLL REVEAL ── */
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-.reveal.visible { opacity: 1; transform: none; }
-
-/* ── SCAN LINE OVERLAY ── */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0,0,0,0.07) 2px,
-    rgba(0,0,0,0.07) 4px
-  );
-  pointer-events: none;
-  z-index: 200;
 }
 
 /* ── NAV ── */
@@ -817,6 +718,14 @@ footer p {
 }
 
 footer p span { color: var(--green); }
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
 
 /* ── SCAN LINE ── */
 body::after {
